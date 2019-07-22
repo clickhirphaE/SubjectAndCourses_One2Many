@@ -28,7 +28,7 @@ public class HomeController {
     @GetMapping("/add")
     public String courseForm(Model model) {
         model.addAttribute("course", new Course());
-        model.addAttribute("subject", subjectRepository.findAll());
+        model.addAttribute("subjects", subjectRepository.findAll());
         return "courseform";
     }
 
@@ -43,17 +43,14 @@ public class HomeController {
     }
     @RequestMapping("/addsubject")
     public String processSubject( Model model){
-//        if (result.hasErrors()) {
-//            return "subject";
-//        }
+
         model.addAttribute("subject" , new Subject());
         return "subjectform";
     }
 
-    @PostMapping("/processSubject")
+    @PostMapping("/processsubject")
     public String processForm(@Valid Subject subject, BindingResult result, Model model) {
         if (result.hasErrors()) {
-//            model.addAttribute("subjects", subjectRepository.findAll());
             return "subjectform";
         }
         if (subjectRepository.findBysubjectName(subject.getSubjectName()) != null){

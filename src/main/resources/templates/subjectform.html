@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Subject</title>
@@ -7,16 +7,13 @@
 <body>
 <form action="#"
       method="post"
-      th:action="@{/processSubject}" th:object="${subject}">
+      th:action="@{/processsubject}" th:object="${subject}">
 
     <input th:field="*{id}" type="hidden"/>
 
 
     SubjectName:<input th:field="*{subjectName}" type="text"/>
-    <!--<span th:errors="*{subjectName}"-->
-          <!--th:if="${#fields.hasError('subjectName')}"></span><br>-->
 
-    <!--<span th:text="${message}"></span> <br>-->
     <input type="submit" value="Submit">
 </form>
 </body>
